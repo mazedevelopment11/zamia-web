@@ -234,6 +234,27 @@ button.h-spot{cursor:pointer}
   .d-cta{padding:36px 24px;border-radius:24px}
 }
 
+/* ---------- Brand page photo heroes ---------- */
+.bh{position:relative;overflow:hidden;background:var(--bg)}
+.bh-asan{--bg:#0d0d0f}.bh-vip{--bg:#fff7f9}.bh-veg{--bg:#081650}
+.bh-in{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:80px 24px;min-height:620px;display:flex;align-items:center}
+.bh-txt{width:min(520px,42%)}
+.bh-photo{position:absolute;top:0;right:0;bottom:0;width:68%;overflow:hidden}
+.bh-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.bh-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0,transparent 42%)}
+.bh-vip .bh-photo img{object-position:58% 50%}
+.bh-photo.wide{width:60%}
+.bh-photo.wide::after{display:none}
+.bh-photo.wide img{object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%),linear-gradient(180deg,transparent 4%,#000 34%,#000 88%,transparent 99%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 7%),linear-gradient(180deg,transparent 4%,#000 34%,#000 88%,transparent 99%);mask-composite:intersect}
+@media (max-width:860px){
+  .bh{display:flex;flex-direction:column}
+  .bh-in{display:block;min-height:0;padding:44px 18px 8px}
+  .bh-txt{width:auto}
+  .bh-photo,.bh-photo.wide{position:relative;width:auto;order:2;aspect-ratio:16/10}
+  .bh-photo.wide{aspect-ratio:16/9}
+  .bh-photo::after{background:linear-gradient(180deg,var(--bg) 0,transparent 30%)}
+}
+
 /* ---------- Mobile layer (phones & small tablets) ---------- */
 html{-webkit-text-size-adjust:100%}
 .zroot{overflow-x:clip}
@@ -449,9 +470,9 @@ button,a{-webkit-tap-highlight-color:transparent}
 
 <sc-if value="{{ isAsan }}" hint-placeholder-val="{{ false }}">
 <main style="flex:1;background:#0d0d0f;color:#fff">
-  <section style="position:relative;overflow:hidden">
-    <div class="zband" style="position:absolute;right:-10%;top:0;bottom:0;width:48%;background:#e3211b;transform:skewX(-14deg)"></div>
-    <div class="zpt zpb" style="position:relative;max-width:1240px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px;align-items:center">
+  <section class="bh bh-asan">
+    <div class="bh-photo wide"><img src="assets/asan-range.webp" alt="The Asan range: six sparkling drinks and five energy drinks"></div>
+    <div class="bh-in"><div class="bh-txt">
       <div>
         <div style="font:700 15px 'Barlow Condensed';letter-spacing:.3em;color:#ff4a3d;text-transform:uppercase">Welcome to Asan</div>
         <h1 style="font:400 clamp(64px,10vw,140px)/.86 'Anton';text-transform:uppercase;margin:16px 0 24px">Unleash<br><span style="color:#e3211b;-webkit-text-stroke:0">the</span> power</h1>
@@ -462,12 +483,7 @@ button,a{-webkit-tap-highlight-color:transparent}
           <a href="https://www.instagram.com/asan_iraq/" target="_blank" rel="noopener" aria-label="Asan on Instagram" title="@asan_iraq" style="width:60px;height:60px;border:2px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center;transition:all .2s" style-hover="background:#e3211b;border-color:#e3211b;color:#fff"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
         </div>
       </div>
-      <div style="display:flex;justify-content:center">
-        <div onMouseEnter="{{ roarOn }}" onMouseLeave="{{ roarOff }}" style="width:min(100%,420px);background:#fff;padding:22px;border-radius:24px;box-shadow:18px 18px 0 #0d0d0f;animation:{{ roarAnim }};transform:rotate(-4deg);cursor:pointer">
-          <img src="assets/asan-logo.webp" alt="Asan" style="width:100%;display:block">
-        </div>
-      </div>
-    </div>
+    </div></div>
   </section>
   {{ marquee }}
 
@@ -564,8 +580,10 @@ button,a{-webkit-tap-highlight-color:transparent}
 <sc-if value="{{ isVip }}" hint-placeholder-val="{{ false }}">
 <main style="flex:1;background:#fff7f9;color:#5a2a3c;position:relative;overflow:hidden">
   {{ petals }}
-  <section class="zpt zpb" style="position:relative;max-width:1240px;margin:0 auto;padding:80px 24px 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px;align-items:center">
-    <div>
+  <section class="bh bh-vip">
+    <div class="bh-photo"><img src="assets/vip-detergent.webp" alt="VIP Laundry Detergent for whites and for colours"></div>
+    <div class="bh-in"><div class="bh-txt">
+      <div>
       <div style="font:400 13px 'Jost';letter-spacing:.32em;text-transform:uppercase;color:#b8567a">VIP · Home &amp; Laundry Care</div>
       <h1 style="font:500 clamp(48px,7vw,92px)/.98 'Cormorant Garamond';margin:18px 0 24px;letter-spacing:-.01em">Experience <em style="color:#d0668f">laundry</em> excellence.</h1>
       <p style="font:300 18px/1.7 'Jost';color:#7a4a5c;max-width:500px;margin:0 0 32px;text-wrap:pretty">A premium formula crafted for the ultimate care of your fabrics — so they emerge not just clean, but revitalized. From tough stains to a gentle refresh, VIP is your trusted partner.</p>
@@ -574,14 +592,8 @@ button,a{-webkit-tap-highlight-color:transparent}
         <a href="https://www.instagram.com/vip_zamia/" target="_blank" rel="noopener" aria-label="VIP on Instagram" title="@vip_zamia" style="width:56px;height:56px;border-radius:50%;background:#fff;border:1px solid #f0c4d3;color:#d0668f;display:flex;align-items:center;justify-content:center;transition:all .25s" style-hover="background:#d0668f;color:#fff;border-color:#d0668f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
       </div>
     </div>
-    <div style="display:flex;justify-content:center;position:relative">
-      <div style="position:absolute;width:min(90%,440px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ffe1ea 0%,#fbd0dd 60%,transparent 70%)"></div>
-      <div style="position:relative;width:min(80%,380px);aspect-ratio:1;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 80px -30px #e7a3ba">
-        <img src="assets/vip-logo.png" alt="VIP" style="width:125%;mix-blend-mode:multiply">
-      </div>
-    </div>
+    </div></div>
   </section>
-
   <section ref="{{ collectionRef }}" class="zpb" style="position:relative;max-width:1240px;margin:0 auto;padding:48px 24px 88px">
     <h2 style="font:500 clamp(38px,5vw,60px)/1 'Cormorant Garamond';margin:0 0 8px;text-align:center">The <em style="color:#d0668f">collection</em></h2>
     <p style="font:300 16px 'Jost';color:#9a6a7c;text-align:center;margin:0 0 40px">Tailored options for every laundry and home need.</p>
@@ -650,27 +662,20 @@ button,a{-webkit-tap-highlight-color:transparent}
 
 <sc-if value="{{ isVegeta }}" hint-placeholder-val="{{ false }}">
 <main style="flex:1;background:#f6efe0;color:#0b3f63">
-  <section class="zpt zpb" style="max-width:1240px;margin:0 auto;padding:80px 24px 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px;align-items:center">
-    <div style="animation:fadeUp .7s ease both">
+  <section class="bh bh-veg">
+    <div class="bh-photo"><img src="assets/vegeta-soup.webp" alt="Vegeta Original with a bowl of soup"></div>
+    <div class="bh-in"><div class="bh-txt">
+      <div style="animation:fadeUp .7s ease both">
       <div style="display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:9px 18px;font:700 12px 'DM Sans';letter-spacing:.2em;text-transform:uppercase;color:#0067A0"><span style="width:8px;height:8px;border-radius:50%;background:#f08a24"></span>100% original · 65+ years in kitchens</div>
-      <h1 style="font:400 clamp(48px,6.4vw,88px)/1.02 'Young Serif';margin:24px 0 24px;color:#0b3f63;text-wrap:balance">Europe's No.1 food seasoning.</h1>
-      <p style="font:400 18px/1.7 'DM Sans';color:#3d5a70;max-width:520px;margin:0 0 34px;text-wrap:pretty">An all-purpose blend of vegetables, herbs and spices. Sprinkle it on soups, stews, meat, fish, rice or pasta, and every savoury dish tastes better.</p>
+      <h1 style="font:400 clamp(48px,6.4vw,88px)/1.02 'Young Serif';margin:24px 0 24px;color:#fff;text-wrap:balance">Europe's No.1 food seasoning.</h1>
+      <p style="font:400 18px/1.7 'DM Sans';color:#d6eaf7;max-width:520px;margin:0 0 34px;text-wrap:pretty">An all-purpose blend of vegetables, herbs and spices. Sprinkle it on soups, stews, meat, fish, rice or pasta, and every savoury dish tastes better.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <button onClick="{{ scrollVegUse }}" style="background:#0067A0;color:#fff;border:none;border-radius:999px;padding:17px 30px;font:700 15px 'DM Sans';cursor:pointer" style-hover="background:#00507d">How to use it</button>
-        <button onClick="{{ goContact }}" style="background:transparent;color:#0067A0;border:2px solid #0067A0;border-radius:999px;padding:15px 28px;font:700 15px 'DM Sans';cursor:pointer" style-hover="background:#0067A0;color:#fff">Stock Vegeta</button>
+        <button onClick="{{ scrollVegUse }}" style="background:#f6efe0;color:#0b3f63;border:none;border-radius:999px;padding:17px 30px;font:700 15px 'DM Sans';cursor:pointer" style-hover="background:#fff">How to use it</button>
+        <button onClick="{{ goContact }}" style="background:transparent;color:#fff;border:2px solid #fff;border-radius:999px;padding:15px 28px;font:700 15px 'DM Sans';cursor:pointer" style-hover="background:#fff;color:#0b3f63">Stock Vegeta</button>
       </div>
     </div>
-    <div class="zveghero" style="position:relative;display:flex;justify-content:center;align-items:center;min-height:480px">
-      <div style="position:absolute;width:min(100%,460px);aspect-ratio:1;border-radius:50%;background:#0067A0"></div>
-      <div style="position:absolute;width:min(70%,320px);aspect-ratio:1;border-radius:50%;border:2px dashed #6fb3db"></div>
-      <img src="https://cdn.vegeta.com/usa/2025/10/vegeta_original_us-e035e52a-a4de-11f0-83a2-beae6eace6d1.webp" alt="Vegeta Classic" style="position:relative;height:430px;max-width:70%;object-fit:contain;transform:rotate(-5deg);filter:drop-shadow(14px 26px 22px rgba(0,40,70,.35))">
-      <div style="position:absolute;left:4%;top:16%;background:#fff;border-radius:999px;padding:10px 16px;font:700 14px 'DM Sans';color:#0b3f63;display:flex;align-items:center;gap:8px;box-shadow:0 10px 24px -12px rgba(0,40,70,.4)"><span style="width:12px;height:12px;border-radius:50%;background:#f08a24"></span>Carrot</div>
-      <div style="position:absolute;right:2%;top:30%;background:#fff;border-radius:999px;padding:10px 16px;font:700 14px 'DM Sans';color:#0b3f63;display:flex;align-items:center;gap:8px;box-shadow:0 10px 24px -12px rgba(0,40,70,.4)"><span style="width:12px;height:12px;border-radius:50%;background:#3f9a4a"></span>Parsley</div>
-      <div style="position:absolute;left:8%;bottom:14%;background:#fff;border-radius:999px;padding:10px 16px;font:700 14px 'DM Sans';color:#0b3f63;display:flex;align-items:center;gap:8px;box-shadow:0 10px 24px -12px rgba(0,40,70,.4)"><span style="width:12px;height:12px;border-radius:50%;background:#9cc66b"></span>Celery</div>
-      <div style="position:absolute;right:8%;bottom:8%;background:#fff;border-radius:999px;padding:10px 16px;font:700 14px 'DM Sans';color:#0b3f63;display:flex;align-items:center;gap:8px;box-shadow:0 10px 24px -12px rgba(0,40,70,.4)"><span style="width:12px;height:12px;border-radius:50%;background:#c98fb0"></span>Onion</div>
-    </div>
+    </div></div>
   </section>
-
   <section style="background:#0067A0;color:#fff">
     <div class="zpt zpb" style="max-width:1240px;margin:0 auto;padding:88px 24px">
       <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px">
