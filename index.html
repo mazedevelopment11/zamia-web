@@ -154,7 +154,8 @@ button.h-spot{cursor:pointer}
   .h-slide{display:flex;flex-direction:column;align-items:stretch;padding:34px 22px 92px;min-height:0;gap:26px}
   .h-title{margin:16px 0 16px}
   .h-lead{font-size:16px;margin-bottom:24px}
-  .h-photo,.h-photo.wide{position:relative;width:auto;height:300px;border-radius:18px;overflow:hidden;order:2;flex:none}
+  .h-photo,.h-photo.wide{position:relative;width:auto;height:350px;margin:0 -22px;border-radius:0;overflow:hidden;order:2;flex:none}
+  .h-photo:not(.wide) img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 26%,#000 80%,transparent 100%),linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,#000 26%,#000 80%,transparent 100%),linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
   .h-photo.wide{height:auto;aspect-ratio:16/9;margin:0 -22px;border-radius:0}
   .h-photo::after{display:none}
   .h-vis{order:2}
